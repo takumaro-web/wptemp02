@@ -1,0 +1,168 @@
+@charset "utf-8";
+
+/* ===========================================================
+
+   [Modules] 
+
+=========================================================== */
+
+/* -----------------------------------------------------------
+    01. Headings
+----------------------------------------------------------- */
+
+/* -----------------------------------------------------------
+    02. BlogEntry
+----------------------------------------------------------- */
+
+$color02: #FF0066; //hover #850909
+
+.link-blog{
+    display: block;
+    box-shadow: 0 1px 3px #C1C1C1;
+    @include transition(box-shadow 0.2s ease-in-out 0s);
+    &:hover{
+    	box-shadow: 0 0 8px $color02, 0 0 8px $color02;
+    	transform: skew(-0deg, -0deg) translate(0px, 10px);
+    	background: url(../images/bg-dummy.gif) no-repeat;
+    	background-size: 100% 100%;
+	}
+}
+
+.blog-entry {
+	padding: 10px 0 0 10px;
+	@include clearfix;
+	direction: rtl;
+    display: table;
+    width: 100%;
+    p.data{
+    	padding-top: 5px;
+    	margin-bottom: 0px;
+    	position: relative;
+    }
+
+	.blog-entry-dtail {
+		width: 100%;
+		direction: ltr;
+    	display: table-cell;
+    	vertical-align: top;
+    	padding-right: 15px;
+	}
+    .image{
+    		text-align: left;
+    		direction: ltr;
+    		display: table-cell;
+    		min-width: 210px;
+    		margin-bottom: 15px;
+    		vertical-align: top;
+    		float: left;
+    		img{
+    			width: 200px;
+    		}
+	}
+
+	.blog-title{
+		@include fontsize(20);
+		color: #0066CC;
+		margin-bottom: 15px;
+	}
+
+	time {
+		@include fontsize(20);
+		color: #444;
+		vertical-align: top;
+		font-weight: bold;
+	}
+
+	.author{
+		position: absolute;
+		right: -12px;
+		font-weight: bold;
+		margin-left: 10px;
+		padding: 2px 5px;
+		color: #fff;
+		background: #000;
+		vertical-align: top;
+	}
+}
+
+.read-more{
+	text-align: center;
+	a{
+		display: block;
+		text-align: center;
+		padding: 10px;
+		box-shadow: 0 1px 3px #C1C1C1;
+    	@include transition(box-shadow 0.2s ease-in-out 0s);
+    &:hover{
+    	box-shadow: 0 0 8px $color02, 0 0 8px $color02;
+	}
+	}
+}
+
+@media screen and (min-width: 0px) and (max-width: 500px) {
+.blog-entry {
+    p.data{
+    	padding-top: 0px;
+    	margin-bottom: 5px;
+    }
+
+    .image{
+    	min-width: 110px;
+    	img{
+    		width: 100px;
+    	}
+    }
+	.blog-title{
+		@include fontsize(15);
+		margin-bottom: 5px;
+	}
+
+	time {
+		@include fontsize(14);
+	}
+
+	.author{
+		margin-left: 10px;
+		padding: 0 5px;
+		color: #fff;
+		background: #000;
+	}
+}
+}
+
+
+/* -----------------------------------------------------------
+    03. List
+----------------------------------------------------------- */
+
+/* -----------------------------------------------------------
+    04. Toggle and Accordion
+----------------------------------------------------------- */
+
+/* -----------------------------------------------------------
+    04. Table
+----------------------------------------------------------- */
+
+/* -----------------------------------------------------------
+    06. Image
+----------------------------------------------------------- */
+
+/* -----------------------------------------------------------
+    07. Text
+----------------------------------------------------------- */
+
+/* -----------------------------------------------------------
+    08. Ajust
+----------------------------------------------------------- */
+
+.mod-mb-non{margin-bottom:0!important;}
+.mod-mb-5{margin-bottom:5px!important;}
+.mod-mb-10{margin-bottom:10px!important;}
+.mod-mb-20{margin-bottom:20px!important;}
+.mod-pd-non{padding: 0!important;}
+.align-L{text-align: left!important;}
+.align-C{text-align: center!important;}
+.align-R{text-align: right!important;}
+.align-T{vertical-align: top!important;}
+.align-M{vertical-align: middle!important;}
+.align-B{vertical-align: bottom!important;}

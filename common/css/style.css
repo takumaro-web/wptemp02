@@ -1,0 +1,595 @@
+@charset "UTF-8";
+                             /*
+$sprites: sprite-map("sprites/*.png");
+$sprites-img:sprite-url($sprites);
+
+@mixin sprite-background($name) {
+background-image: $sprites;
+background-repeat: no-repeat;
+overflow: hidden;
+content: "";
+position: absolute;
+display: block;
+height: image-height(sprite-file($sprites, $name)) / 2;
+width: image-width(sprite-file($sprites, $name)) / 2;
+$ypos: round(nth(sprite-position($sprites, $name), 2) / 2);
+background-position: 0 $ypos;
+@include background-size(39px auto);
+}
+
+@mixin sprite-background-ajust($name) {
+background-image: $sprites;
+background-repeat: no-repeat;
+$ypos: round(nth(sprite-position($sprites, $name), 2) / 2);
+background-position: 0 $ypos;
+@include background-size(39px auto);
+}
+
+*/
+/* ===========================================================
+
+   [Setting] 
+
+=========================================================== */
+/* -----------------------------------------------------------
+    01. Default Style Reset
+----------------------------------------------------------- */
+html, body,
+div, span,
+object, iframe,
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+a, abbr, acronym, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, strong, sub, sup, tt, var,
+ul, ol, li, dl, dt, dd,
+form, fieldset, legend, label, figure,
+table, caption, tbody, tfoot, thead, tr, th, td,
+header, main, article, section, nav, footer {
+  margin: 0;
+  padding: 0;
+}
+
+header, main, nav, footer {
+  display: block;
+}
+
+h1, h2, h3, h4, h5 {
+  font-size: 100%;
+  font-weight: bold;
+}
+
+img {
+  border: none;
+  vertical-align: bottom;
+}
+
+em,
+strong {
+  font-style: normal;
+  font-weight: normal;
+  text-align: left;
+}
+
+table {
+  border: none;
+  border-spacing: 0;
+  font-size: 100%;
+}
+
+th,
+td {
+  border: none;
+  border-spacing: 0;
+  vertical-align: top;
+}
+
+caption,
+th {
+  font-weight: normal;
+  text-align: left;
+}
+
+ul,
+ol,
+dl {
+  list-style: none;
+}
+
+input,
+select,
+textarea {
+  vertical-align: middle;
+}
+
+hr {
+  display: none;
+}
+
+/* -----------------------------------------------------------
+    02. Basic Style
+----------------------------------------------------------- */
+html {
+  font-size: 100%;
+  overflow-y: scroll;
+}
+
+body {
+  color: #333333;
+  font-size: 14px;
+  font-size: 0.875rem;
+  overflow: hidden;
+}
+
+body,
+input,
+select,
+button,
+textarea {
+  font-family: "メイリオ", "ＭＳ Ｐゴシック", "MS PGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+}
+
+a:link {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #660066;
+  text-decoration: none;
+}
+
+a:hover,
+a:active,
+a:focus {
+  color: #0099cc;
+  text-decoration: none;
+}
+
+p, ul li, ol li, dl dt, dl dd,
+caption, th, td,
+input, option, textarea {
+  line-height: 1.5;
+}
+
+p, ul, ol, dl, table {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+
+li p,
+li ul,
+li ol {
+  margin-bottom: 0;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-weight: bold;
+}
+
+small {
+  font-size: 0.83em;
+}
+
+input[type="checkbox"]:checked + * {
+  opacity: 0.7;
+  background-color: #ffffff;
+}
+
+/* ===========================================================
+
+   [Layout] 
+
+=========================================================== */
+/* -----------------------------------------------------------
+    01. Structure
+----------------------------------------------------------- */
+.main-visual {
+  width: 100%;
+  height: 250px;
+  text-align: center;
+  border: 2px solid #aaaaaa;
+  margin-bottom: 20px;
+  background: url(../images/dummy-main-visual.gif) no-repeat center;
+}
+
+.wrap-contents {
+  margin: 0 auto 20px;
+  width: 1024px;
+}
+.wrap-contents:before, .wrap-contents:after {
+  content: " ";
+  display: table;
+}
+.wrap-contents:after {
+  clear: both;
+}
+
+@media screen and (min-width: 0) and (max-width: 960px) {
+  .wrap-contents {
+    width: 100%;
+    margin: 0 auto 20px;
+  }
+}
+.list-select-contents {
+  width: 100%;
+  margin-bottom: 10px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+  opacity: 0.6;
+}
+.list-select-contents:before, .list-select-contents:after {
+  content: " ";
+  display: table;
+}
+.list-select-contents:after {
+  clear: both;
+}
+.list-select-contents li {
+  width: 32%;
+  border: 2px solid #aaaaaa;
+  margin-right: 1%;
+  float: left;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.list-select-contents li a {
+  font-size: 12px;
+  font-size: 0.75rem;
+  padding: 20px 10px 20px 15px;
+  display: block;
+  text-align: left;
+  color: #aaaaaa;
+}
+.list-select-contents li:nth-child(3n-1) {
+  width: 34%;
+}
+.list-select-contents li:nth-child(3n) {
+  margin-right: 0%;
+}
+
+@media screen and (min-width: 0px) and (max-width: 500px) {
+  .list-select-contents {
+    margin-bottom: 0;
+  }
+  .list-select-contents li {
+    width: 100%;
+    margin-right: 0%;
+    margin-bottom: 10px;
+    float: none;
+  }
+  .list-select-contents li a {
+    text-align: left;
+    color: white;
+  }
+  .list-select-contents li:nth-child(3n-1) {
+    border-right: none;
+    border-left: none;
+    width: 100%;
+  }
+}
+.main-contents {
+  margin-bottom: 10px;
+  float: left;
+  border: 2px solid #aaaaaa;
+  width: 63.6%;
+  min-height: 800px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.side-contents {
+  margin-bottom: 10px;
+  float: right;
+  border: 2px solid #aaaaaa;
+  width: 35.5%;
+  min-height: 800px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+@media screen and (min-width: 0px) and (max-width: 720px) {
+  .main-contents {
+    margin-bottom: 10px;
+    float: none;
+    width: 100%;
+  }
+
+  .side-contents {
+    margin-bottom: 10px;
+    float: none;
+    width: 100%;
+  }
+}
+/* ===========================================================
+
+   [header] 
+
+=========================================================== */
+.page-header {
+  width: 100%;
+  background: #dddddd;
+}
+
+.nav-header {
+  width: 960px;
+  margin: 0 auto;
+  position: relative;
+}
+
+#logo {
+  padding: 10px 0 0 10px;
+}
+
+#menu {
+  text-align: right;
+  margin: -20px 0 0;
+  padding-bottom: 15px;
+}
+#menu:before, #menu:after {
+  content: " ";
+  display: table;
+}
+#menu:after {
+  clear: both;
+}
+
+#global-menu {
+  position: absolute;
+  width: 100%;
+  background: #000;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+  opacity: 0.6;
+  display: none;
+}
+#global-menu:before, #global-menu:after {
+  content: " ";
+  display: table;
+}
+#global-menu:after {
+  clear: both;
+}
+#global-menu li {
+  width: 33%;
+  float: left;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#global-menu li a {
+  font-size: 12px;
+  font-size: 0.75rem;
+  padding: 8px 5px;
+  display: block;
+  color: white;
+}
+#global-menu li:nth-child(3n-1) {
+  border-right: 1px dotted #dddddd;
+  border-left: 1px dotted #dddddd;
+}
+
+@media screen and (min-width: 320px) and (max-width: 919px) {
+  .nav-header {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+/* ===========================================================
+
+   Footer 
+
+=========================================================== */
+.page-footer {
+  width: 100%;
+  background: #ddd;
+  height: 150px;
+}
+
+/* ===========================================================
+
+   [Modules] 
+
+=========================================================== */
+/* -----------------------------------------------------------
+    01. Headings
+----------------------------------------------------------- */
+/* -----------------------------------------------------------
+    02. BlogEntry
+----------------------------------------------------------- */
+.link-blog {
+  display: block;
+  -webkit-box-shadow: 0 1px 3px #C1C1C1;
+  box-shadow: 0 1px 3px #C1C1C1;
+  -webkit-transition: -webkit-box-shadow 0.2s ease-in-out;
+  -webkit-transition-delay: 0s;
+  -webkit-transition: -webkit-box-shadow 0.2s ease-in-out 0s;
+  transition: box-shadow 0.2s ease-in-out 0s;
+}
+.link-blog:hover {
+  -webkit-box-shadow: 0 0 8px #ff0066, 0 0 8px #ff0066;
+  box-shadow: 0 0 8px #ff0066, 0 0 8px #ff0066;
+  -webkit-transform: skew(0deg, 0deg) translate(0px, 10px);
+  -ms-transform: skew(0deg, 0deg) translate(0px, 10px);
+  transform: skew(0deg, 0deg) translate(0px, 10px);
+  background: url(../images/bg-dummy.gif) no-repeat;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+}
+
+.blog-entry {
+  padding: 10px 0 0 10px;
+  direction: rtl;
+  display: table;
+  width: 100%;
+}
+.blog-entry:before, .blog-entry:after {
+  content: " ";
+  display: table;
+}
+.blog-entry:after {
+  clear: both;
+}
+.blog-entry p.data {
+  padding-top: 5px;
+  margin-bottom: 0px;
+  position: relative;
+}
+.blog-entry .blog-entry-dtail {
+  width: 100%;
+  direction: ltr;
+  display: table-cell;
+  vertical-align: top;
+  padding-right: 15px;
+}
+.blog-entry .image {
+  text-align: left;
+  direction: ltr;
+  display: table-cell;
+  min-width: 210px;
+  margin-bottom: 15px;
+  vertical-align: top;
+  float: left;
+}
+.blog-entry .image img {
+  width: 200px;
+}
+.blog-entry .blog-title {
+  font-size: 20px;
+  font-size: 1.25rem;
+  color: #0066CC;
+  margin-bottom: 15px;
+}
+.blog-entry time {
+  font-size: 20px;
+  font-size: 1.25rem;
+  color: #444;
+  vertical-align: top;
+  font-weight: bold;
+}
+.blog-entry .author {
+  position: absolute;
+  right: -12px;
+  font-weight: bold;
+  margin-left: 10px;
+  padding: 2px 5px;
+  color: #fff;
+  background: #000;
+  vertical-align: top;
+}
+
+.read-more {
+  text-align: center;
+}
+.read-more a {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  -webkit-box-shadow: 0 1px 3px #C1C1C1;
+  box-shadow: 0 1px 3px #C1C1C1;
+  -webkit-transition: -webkit-box-shadow 0.2s ease-in-out;
+  -webkit-transition-delay: 0s;
+  -webkit-transition: -webkit-box-shadow 0.2s ease-in-out 0s;
+  transition: box-shadow 0.2s ease-in-out 0s;
+}
+.read-more a:hover {
+  -webkit-box-shadow: 0 0 8px #ff0066, 0 0 8px #ff0066;
+  box-shadow: 0 0 8px #ff0066, 0 0 8px #ff0066;
+}
+
+@media screen and (min-width: 0px) and (max-width: 500px) {
+  .blog-entry p.data {
+    padding-top: 0px;
+    margin-bottom: 5px;
+  }
+  .blog-entry .image {
+    min-width: 110px;
+  }
+  .blog-entry .image img {
+    width: 100px;
+  }
+  .blog-entry .blog-title {
+    font-size: 15px;
+    font-size: 0.9375rem;
+    margin-bottom: 5px;
+  }
+  .blog-entry time {
+    font-size: 14px;
+    font-size: 0.875rem;
+  }
+  .blog-entry .author {
+    margin-left: 10px;
+    padding: 0 5px;
+    color: #fff;
+    background: #000;
+  }
+}
+/* -----------------------------------------------------------
+    03. List
+----------------------------------------------------------- */
+/* -----------------------------------------------------------
+    04. Toggle and Accordion
+----------------------------------------------------------- */
+/* -----------------------------------------------------------
+    04. Table
+----------------------------------------------------------- */
+/* -----------------------------------------------------------
+    06. Image
+----------------------------------------------------------- */
+/* -----------------------------------------------------------
+    07. Text
+----------------------------------------------------------- */
+/* -----------------------------------------------------------
+    08. Ajust
+----------------------------------------------------------- */
+.mod-mb-non {
+  margin-bottom: 0 !important;
+}
+
+.mod-mb-5 {
+  margin-bottom: 5px !important;
+}
+
+.mod-mb-10 {
+  margin-bottom: 10px !important;
+}
+
+.mod-mb-20 {
+  margin-bottom: 20px !important;
+}
+
+.mod-pd-non {
+  padding: 0 !important;
+}
+
+.align-L {
+  text-align: left !important;
+}
+
+.align-C {
+  text-align: center !important;
+}
+
+.align-R {
+  text-align: right !important;
+}
+
+.align-T {
+  vertical-align: top !important;
+}
+
+.align-M {
+  vertical-align: middle !important;
+}
+
+.align-B {
+  vertical-align: bottom !important;
+}
